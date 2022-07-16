@@ -5,60 +5,53 @@ namespace Lesson_2
     internal class BankAcc
     {
         private static int count;
+
         private string _numb;//использую string потому что банковские счета состоят из 20 цифр и каждая часть счёта что-то означает, например одна из частей - тип счёта
         //кажется, будто string тут использовать более уместно. При генерации счёта использовать конкатенацию разных "смысловых" и "порядковых" частей. 
         private int _balance;
         private accType _type;
 
+        public string Numb
+        {
+            get
+            { return _numb; }
+            set { if (value is null) { _numb = "0000000"; } else { _numb = value; } }
+        }
+        public int Balance
+        {
+            get { return _balance; }
+            set { if (value < 0) { _balance = 0; } else { _balance = value; }; }
+        }
+        public accType Type { get { return _type; } set { _type = value; } }
+
         public BankAcc()
         {
-            this._numb = this.GenerateNumb();
+            this.Numb = this.GenerateNumb();
         }
         public BankAcc(int balance)
         {
-            this._balance = balance;
-            this._numb = this.GenerateNumb();
+            this.Balance = balance;
+            this.Numb = this.GenerateNumb();
         }
         public BankAcc(accType type)
         {
-            this._type = type;
-            this._numb = this.GenerateNumb();
+            this.Type = type;
+            this.Numb = this.GenerateNumb();
         }
         public BankAcc(int balance, accType type)
         {
-            this._type = type;
-            this._balance = balance;
-            this._numb = this.GenerateNumb();
-        }
-
-        /// <summary>
-        /// Чтение поля _numb
-        /// </summary>
-        /// <returns>Возврат номера счёта</returns>
-        public string GetNumber()
-        {
-            return this._numb;
-        }
-        /// <summary>
-        /// Чтение поля _balance
-        /// </summary>
-        /// <returns>Возвращает баланс</returns>
-        public int GetBalance()
-        {
-            return this._balance;
-        }
-        public accType GetAccType()
-        {
-            return this._type;
+            this.Type = type;
+            this.Balance = balance;
+            this.Numb = this.GenerateNumb();
         }
         /// <summary>
         /// Генерация уникального номера счёта за счёт увеличения статической переменной count  
         /// </summary>
         /// <returns>Возвращает уникальный номер счёта</returns>
-        public string GenerateNumb()
+        private string GenerateNumb()
         {
             count++;
-            return $"{(int)this._type}{count.ToString().PadLeft(6, '0')}";
+            return $"{(int)this.Type}{count.ToString().PadLeft(6, '0')}";
         }
         /// <summary>
         /// Переопределение метода ToString().
@@ -66,7 +59,7 @@ namespace Lesson_2
         /// <returns>строку, содержащую тип счёта, номер счёта и баланс.</returns>
         public override string ToString()
         {
-            return $"Тип счёта: {this._type}\nНомер счёта: {this._numb}\nБаланс: {this._balance}";
+            return $"Тип счёта: {this.Type}\nНомер счёта: {this.Numb}\nБаланс: {this.Balance}";
         }
     }
     enum accType

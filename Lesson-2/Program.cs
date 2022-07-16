@@ -8,5 +8,7 @@ Console.WriteLine($"1: {acc}");
 Console.WriteLine($"2: {acc2}");
 Console.WriteLine($"3: {acc3}");
 Console.WriteLine($"4: {acc4}");
+var acc5 = new BankAcc(500, accType.Валютный);
+Console.WriteLine($"5: {acc5}");
 
 Console.ReadLine();
