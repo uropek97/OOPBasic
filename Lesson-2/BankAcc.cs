@@ -53,13 +53,22 @@ namespace Lesson_2
             count++;
             return $"{(int)this.Type}{count.ToString().PadLeft(6, '0')}";
         }
+        /// <summary>
+        /// Положить деньги на счета
+        /// </summary>
+        /// <param name="money">сумма</param>
         public void PutMoney(int money)
         {
             Balance += money;
         }
+        /// <summary>
+        /// Снять деньги со счёта
+        /// </summary>
+        /// <param name="money">сумма</param>
+        /// <returns>Возвращает true, если успешно</returns>
         public bool WithdrawMonye(int money)
         {
-            if(money > Balance)
+            if (money > Balance)
             {
                 return false;
             }
@@ -69,6 +78,10 @@ namespace Lesson_2
                 return true;
             }
         }
+        /// <summary>
+        /// Вывод на экран, успешно ли прошла операция
+        /// </summary>
+        /// <param name="operation"></param>
         public static void PrintChange(bool operation)
         {
             if (operation)
@@ -79,6 +92,14 @@ namespace Lesson_2
             {
                 Console.WriteLine("Недостаточно средств на счету.");
             }
+        }
+        public void TransferMoney(BankAcc acc, int sum)
+        {
+            bool operation = acc.WithdrawMonye(sum);
+            if (operation)
+            {
+                PutMoney(sum);
+            }           
         }
         /// <summary>
         /// Переопределение метода ToString().

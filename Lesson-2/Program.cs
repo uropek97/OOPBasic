@@ -17,5 +17,9 @@ BankAcc.PrintChange(acc5.WithdrawMonye(700));
 Console.WriteLine(acc5);
 BankAcc.PrintChange(acc5.WithdrawMonye(200));
 Console.WriteLine(acc5);
+Console.WriteLine("Перевод со счёта 5 на счёт 4.");
+acc4.TransferMoney(acc5, 50);
+Console.WriteLine($"Баланс 4: {acc4.Balance}");
+Console.WriteLine($"Баланс 5: {acc5.Balance}");
 
 Console.ReadLine();
