@@ -1,9 +1,12 @@
 ﻿using Lesson_2;
 
 var acc = new BankAcc();
-acc.SetAccType(accType.Текущий); acc.SetNumber("0000001"); acc.SetBalance(99);
-Console.WriteLine(acc);
-var acc2 = new BankAcc();
-acc2.SetAccType(accType.Накопительный); acc2.SetNumber(); acc2.SetBalance(3);
-Console.WriteLine(acc2);
+var acc2 = new BankAcc(100);
+var acc3 = new BankAcc(accType.Общий);
+var acc4 = new BankAcc(200, accType.Текущий);
+Console.WriteLine($"1: {acc}");
+Console.WriteLine($"2: {acc2}");
+Console.WriteLine($"3: {acc3}");
+Console.WriteLine($"4: {acc4}");
+
 Console.ReadLine();

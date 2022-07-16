@@ -9,6 +9,28 @@ namespace Lesson_2
         //кажется, будто string тут использовать более уместно. При генерации счёта использовать конкатенацию разных "смысловых" и "порядковых" частей. 
         private int _balance;
         private accType _type;
+
+        public BankAcc()
+        {
+            this._numb = this.GenerateNumb();
+        }
+        public BankAcc(int balance)
+        {
+            this._balance = balance;
+            this._numb = this.GenerateNumb();
+        }
+        public BankAcc(accType type)
+        {
+            this._type = type;
+            this._numb = this.GenerateNumb();
+        }
+        public BankAcc(int balance, accType type)
+        {
+            this._type = type;
+            this._balance = balance;
+            this._numb = this.GenerateNumb();
+        }
+
         /// <summary>
         /// Чтение поля _numb
         /// </summary>
@@ -18,19 +40,6 @@ namespace Lesson_2
             return this._numb;
         }
         /// <summary>
-        /// Присвоение полю _numb значения
-        /// </summary>
-        /// <param name="numb">номер счета</param>
-        public void SetNumber(string numb)
-        {
-            count++;
-            this._numb = numb;
-        }
-        public void SetNumber()
-        {
-            this._numb = this.GenerateNumb();
-        }
-        /// <summary>
         /// Чтение поля _balance
         /// </summary>
         /// <returns>Возвращает баланс</returns>
@@ -38,29 +47,9 @@ namespace Lesson_2
         {
             return this._balance;
         }
-        /// <summary>
-        /// Присвоение полю _balance значения
-        /// </summary>
-        /// <param name="balance">баланс</param>
-        public void SetBalance(int balance)
-        {
-            this._balance = balance;
-        }
-        /// <summary>
-        /// Чтение поля _type
-        /// </summary>
-        /// <returns>Возвращает тип счёта</returns>
         public accType GetAccType()
         {
             return this._type;
-        }
-        /// <summary>
-        /// Присвоение полю _type значения
-        /// </summary>
-        /// <param name="type">тип счёта</param>
-        public void SetAccType(accType type)
-        {
-            this._type = type;
         }
         /// <summary>
         /// Генерация уникального номера счёта за счёт увеличения статической переменной count  
