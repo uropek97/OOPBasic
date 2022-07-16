@@ -53,6 +53,33 @@ namespace Lesson_2
             count++;
             return $"{(int)this.Type}{count.ToString().PadLeft(6, '0')}";
         }
+        public void PutMoney(int money)
+        {
+            Balance += money;
+        }
+        public bool WithdrawMonye(int money)
+        {
+            if(money > Balance)
+            {
+                return false;
+            }
+            else
+            {
+                Balance -= money;
+                return true;
+            }
+        }
+        public static void PrintChange(bool operation)
+        {
+            if (operation)
+            {
+                Console.WriteLine("Баланс успешно изменён.");
+            }
+            else
+            {
+                Console.WriteLine("Недостаточно средств на счету.");
+            }
+        }
         /// <summary>
         /// Переопределение метода ToString().
         /// </summary>

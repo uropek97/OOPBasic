@@ -10,5 +10,12 @@ Console.WriteLine($"3: {acc3}");
 Console.WriteLine($"4: {acc4}");
 var acc5 = new BankAcc(500, accType.Валютный);
 Console.WriteLine($"5: {acc5}");
+acc5.PutMoney(100);
+BankAcc.PrintChange(true);
+Console.WriteLine(acc5);
+BankAcc.PrintChange(acc5.WithdrawMonye(700));
+Console.WriteLine(acc5);
+BankAcc.PrintChange(acc5.WithdrawMonye(200));
+Console.WriteLine(acc5);
 
 Console.ReadLine();
