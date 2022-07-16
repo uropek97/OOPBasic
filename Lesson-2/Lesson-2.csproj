@@ -8,4 +8,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Lesson-2">
+      <HintPath>obj\Debug\net6.0\Lesson-2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
