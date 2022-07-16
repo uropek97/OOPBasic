@@ -4,6 +4,7 @@ namespace Lesson_2
 {
     internal class BankAcc
     {
+        private static int count;
         private string _numb;//использую string потому что банковские счета состоят из 20 цифр и каждая часть счёта что-то означает, например одна из частей - тип счёта
         //кажется, будто string тут использовать более уместно. При генерации счёта использовать конкатенацию разных "смысловых" и "порядковых" частей. 
         private int _balance;
@@ -22,7 +23,12 @@ namespace Lesson_2
         /// <param name="numb">номер счета</param>
         public void SetNumber(string numb)
         {
+            count++;
             this._numb = numb;
+        }
+        public void SetNumber()
+        {
+            this._numb = this.GenerateNumb();
         }
         /// <summary>
         /// Чтение поля _balance
@@ -57,6 +63,15 @@ namespace Lesson_2
             this._type = type;
         }
         /// <summary>
+        /// Генерация уникального номера счёта за счёт увеличения статической переменной count  
+        /// </summary>
+        /// <returns>Возвращает уникальный номер счёта</returns>
+        public string GenerateNumb()
+        {
+            count++;
+            return $"{(int)this._type}{count.ToString().PadLeft(6, '0')}";
+        }
+        /// <summary>
         /// Переопределение метода ToString().
         /// </summary>
         /// <returns>строку, содержащую тип счёта, номер счёта и баланс.</returns>
@@ -67,7 +82,7 @@ namespace Lesson_2
     }
     enum accType
     {
-        Текущий,
+        Текущий = 1,
         Сберегательный,
         Накопительный,
         Валютный,
