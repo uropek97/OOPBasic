@@ -1,4 +1,6 @@
-﻿namespace Lesson_4
+﻿using System.Collections;
+
+namespace Lesson_4
 {
     public class Building
     {
@@ -16,23 +18,23 @@
         public byte Entrances { get { return this._Entrances; } set { if (value < 1) { this._Entrances = 1; } else { this._Entrances = value; } } }
         public ushort Aparts { get { return this._Aparts; } set { if (value < 2) { this._Aparts = 2; } else { this._Aparts = value; } } }
 
-        public Building()
+        internal Building()
         {
             this.NumberBuilding = SetUnicNumberBuilding();
         }
-        public Building(byte floors, byte entrances) : this()
+        internal Building(byte floors, byte entrances) : this()
         {
             this.Floors = floors;
             this.Entrances = entrances;
         }
-        public Building(byte floors, byte entrances, ushort aparts) : this()
+        internal Building(byte floors, byte entrances, ushort aparts) : this()
         {
             this.Floors = floors;
             this.Entrances = entrances;
             this.Aparts = aparts;
         }
 
-        public Building(ushort height, byte floors, byte entrances, ushort aparts) : this()
+        internal Building(ushort height, byte floors, byte entrances, ushort aparts) : this()
         {
             this.Height = height;
             this.Floors = floors;
@@ -62,7 +64,7 @@
         /// <returns>возвращает количество квартир в одном подъезде</returns>
         public int CulcNumbApartInEntrance()
         {
-            return (this.Aparts/this.Entrances);
+            return (this.Aparts / this.Entrances);
         }
         /// <summary>
         /// Метод вычисляет количество квартир на одном этаже(во всех подъездах)
@@ -105,6 +107,57 @@
         public override string ToString()
         {
             return $"Номер дома: {this.NumberBuilding}, высота: {this.Height}, этажей: {this.Floors}, квартир: {this.Aparts}";
+        }
+    }
+    public class Creator
+    {
+        public static Hashtable buildings = new Hashtable();
+        public static Building CreatorBuild()
+        {
+            var building = new Building();
+            buildings.Add(building.NumberBuilding, building);
+            return building;
+        }
+        public static Building CreatorBuild(byte floors, byte entrances)
+        {
+            var building = new Building(floors, entrances);
+            buildings.Add(building.NumberBuilding, building);
+            return building;
+        }
+        public static Building CreatorBuild(byte floors, byte entrances, ushort aparts)
+        {
+            var building = new Building(floors, entrances, aparts);
+            buildings.Add(building.NumberBuilding, building);
+            return building;
+        }
+        public static Building CreatorBuild(ushort height, byte floors, byte entrances, ushort aparts)
+        {
+            var building = new Building(height, floors, entrances, aparts);
+            buildings.Add(building.NumberBuilding, building);
+            return building;
+        }
+        private Creator() { }//требование было сделать конструктор закрытым, для того, чтобы нельзя было создать объект класса? других причин я не нашёл.
+        /// <summary>
+        /// Представляет хэш-таблицу buildings в виде строки
+        /// </summary>
+        /// <returns>хэш-таблицу buildings в виде строки</returns>
+        public static string PrintTable()
+        {
+            string table = string.Empty;
+            ICollection keys = buildings.Keys;
+            foreach (var key in keys)
+            {
+                table += $"{key}: {buildings[key]}\n";
+            }
+            return table;
+        }
+        /// <summary>
+        /// Удаляет дом по номеру дома
+        /// </summary>
+        /// <param name="key">номер дома(ключ)</param>
+        public static void DeleteBuild(uint key)
+        {
+            buildings.Remove(key);
         }
     }
 }
