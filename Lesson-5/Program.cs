@@ -50,5 +50,32 @@ int i = 1;
 Console.WriteLine(third.Equals(i));
 Console.WriteLine(fourth.Equals(third));
 
+var firstComplex = new Complex(2, 1);
+Console.WriteLine(firstComplex);
+var secondComplex = new Complex(2, 5);
+Console.WriteLine(secondComplex);
+var thirdComplex = new Complex(0, 3);
+Console.WriteLine(thirdComplex);
+var fourthComplex = new Complex(4, 0);
+Console.WriteLine(fourthComplex);
+var fifthComplex = new Complex(4, 6);
+Console.WriteLine(fifthComplex);
+var sixthComplex = new Complex(6, 7);
+Console.WriteLine(sixthComplex);
+var sevenComplex = new Complex(6, 7);
+Console.WriteLine(sevenComplex);
+
+Console.WriteLine($"Оператор + : {firstComplex + secondComplex}");
+Console.WriteLine($"Оператор - : {thirdComplex - fourthComplex}");
+Console.WriteLine($"Оператор * : {sixthComplex * fifthComplex}");
+Console.WriteLine($"Оператор / : {fifthComplex / secondComplex}");
+Console.WriteLine($"Оператор == : {sixthComplex == sevenComplex}");
+Console.WriteLine($"Оператор == : {fifthComplex == sevenComplex}");
+Console.WriteLine($"Оператор != : {sixthComplex != sevenComplex}");
+Console.WriteLine($"Оператор != : {fifthComplex != sevenComplex}");
+
+Console.WriteLine(sixthComplex.Equals(sevenComplex));
+Console.WriteLine(fifthComplex.Equals(sevenComplex));
+
 Console.WriteLine("END");
 Console.ReadLine();
