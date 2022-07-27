@@ -5,26 +5,111 @@
         private static uint _LastNumber;
 
         private uint _NumberBuilding;
-        private ushort _Height;
+        private double _Height;
         private byte _Floors;
         private byte _Entrances;
         private ushort _Aparts;
+        private double _FloorHeight;
 
-        public uint NumberBuilding { get { return this._NumberBuilding; } private set { this._NumberBuilding = value; } }
-        public ushort Height { get { return this._Height; } set { if (value < 2) { this._Height = 2; } else { this._Height = value; } } }
-        public byte Floors { get { return this._Floors; } set { if (value < 1) { this._Floors = 1; } else { this._Floors = value; } } }
-        public byte Entrances { get { return this._Entrances; } set { if (value < 1) { this._Entrances = 1; } else { this._Entrances = value; } } }
-        public ushort Aparts { get { return this._Aparts; } set { if (value < 2) { this._Aparts = 2; } else { this._Aparts = value; } } }
+        #region Свойства
+        public uint NumberBuilding
+        {
+            get
+            {
+                return this._NumberBuilding;
+            }
+            private set
+            {
+                this._NumberBuilding = value;
+            }
+        }
+        public double Height
+        {
+            get
+            {
+                return this._Height;
+            }
+            set
+            {
+                if (value < 2)
+                    this._Height = 2;
+                else
+                {
+                    this._Height = value;
+                    if (this.Floors != default)
+                    {
+                        if (CulcFloorHeight() < 2)
+                        {
+                            throw new ArgumentException("Высота этажа должна быть больше 2 метров.");
+                        }
+                    }
+                }
+            }
+        }
+        public byte Floors
+        {
+            get
+            {
+                return this._Floors;
+            }
+            set
+            {
+                if (value < 1)
+                    this._Floors = 1;
+                else
+                {
+                    this._Floors = value;
+                    if (this.Height != default)
+                    {
+                        if (CulcFloorHeight() < 2)
+                        {
+                            throw new ArgumentException("Высота этажа должна быть больше 2 метров.");
+                        }
+                    }
+                }
+            }
+        }
+        public byte Entrances
+        {
+            get
+            {
+                return this._Entrances;
+            }
+            set
+            {
+                if (value < 1)
+                    this._Entrances = 1;
+                else
+                    this._Entrances = value;
+            }
+        }
+        public ushort Aparts
+        {
+            get
+            {
+                return this._Aparts;
+            }
+            set
+            {
+                if (value < 2)
+                    this._Aparts = 2;
+                else
+                    this._Aparts = value;
+            }
+        }
+        #endregion
 
         internal Building()
         {
             this.NumberBuilding = SetUnicNumberBuilding();
         }
+
         internal Building(byte floors, byte entrances) : this()
         {
             this.Floors = floors;
             this.Entrances = entrances;
         }
+
         internal Building(byte floors, byte entrances, ushort aparts) : this()
         {
             this.Floors = floors;
@@ -39,31 +124,26 @@
             this.Entrances = entrances;
             this.Aparts = aparts;
         }
+
         /// <summary>
         /// Метод вычисляет высоту этажа здания
         /// </summary>
         /// <returns>Возвращает высоту этажа</returns>
         /// <exception cref="Exception">Исключение, если высота этажа <2 метров </exception>
-        public int CulcFloorHeight()// правильно ли будет этот метод вызвать сразу в конструкторе, если нам нужна такая логика: этаж > 2 метров?
+        public double CulcFloorHeight()// правильно ли будет этот метод вызвать сразу в конструкторе, если нам нужна такая логика: этаж > 2 метров?
         {
-            int floorHeight = this.Height / this.Floors;
-            if (floorHeight < 2)
-            {
-                throw new Exception("Высота этажа, не может быть меньше 2 метров.");
-            }
-            else
-            {
-                return floorHeight;
-            }
+            return this.Height / this.Floors;
         }
+
         /// <summary>
         /// Метод вычисляет количество квартир в одном подъезде
         /// </summary>
         /// <returns>возвращает количество квартир в одном подъезде</returns>
         public int CulcNumbApartInEntrance()
         {
-            return (this.Aparts / this.Entrances);
+            return this.Aparts / this.Entrances;
         }
+
         /// <summary>
         /// Метод вычисляет количество квартир на одном этаже(во всех подъездах)
         /// </summary>
@@ -85,6 +165,7 @@
                 return numbApart;
             }
         }
+
         /// <summary>
         /// Метод вычисляет количество квартир на одном этаже(в одном подъезде)
         /// </summary>
@@ -93,6 +174,7 @@
         {
             return CulcNumbApartPerFloor() / this.Entrances;
         }
+
         /// <summary>
         /// Метод увеличивает последний номер здания на 1. Присвает этот номер текущему зданию. Увеличивает статическую переменную на 1.
         /// </summary>
