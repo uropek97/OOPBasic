@@ -1,0 +1,81 @@
+﻿using Lesson_5;
+
+var first = new RacionalNumbers(3, 5);
+var second = new RacionalNumbers(7, 10);
+Console.WriteLine($"Оператор: == : {first == second}");
+Console.WriteLine($"Оператор: != : {first != second}");
+Console.WriteLine($"Оператор: > : {first > second}");
+Console.WriteLine($"Оператор: < : {first < second}");
+Console.WriteLine($"Оператор: >= : {first >= second}");
+Console.WriteLine($"Оператор: <= : {first <= second}");
+Console.WriteLine($"Оператор -(изменение знака) : {-first}");
+Console.WriteLine($"Оператор: ++ : {first++}");
+Console.WriteLine($"Оператор: -- : {second--}");
+Console.WriteLine($"Оператор: + : {first + second}");
+Console.WriteLine($"Оператор: - : {first - second}");
+Console.WriteLine($"Оператор: * : {first * second}");
+Console.WriteLine($"Оператор: / : {first / second}");
+Console.WriteLine($"Оператор: +(int) : {first + 2}");
+Console.WriteLine($"Оператор: +(int) : {2 + first}");
+Console.WriteLine($"Оператор: -(int) : {first - 3}");
+Console.WriteLine($"Оператор: -(int) : {3 - first}");
+Console.WriteLine($"Оператор: *(int) : {second * 5}");
+Console.WriteLine($"Оператор: *(int) : {5 * second}");
+Console.WriteLine($"Оператор: /(int) : {second / 4}");
+Console.WriteLine($"Оператор: /(int) : {4 / second}");
+float someFloat = (float)1.5;
+Console.WriteLine($"Оператор: +(float) : {first + someFloat}");
+Console.WriteLine($"Оператор: +(float) : {someFloat + first}");
+Console.WriteLine($"Оператор: -(float) : {first - someFloat}");
+Console.WriteLine($"Оператор: -(float) : {someFloat - first}");
+Console.WriteLine($"Оператор: *(float) : {first * someFloat}");
+Console.WriteLine($"Оператор: *(float) : {someFloat * first}");
+Console.WriteLine($"Оператор: /(float) : {first / someFloat}");
+Console.WriteLine($"Оператор: /(float) : {someFloat / first}");
+double someDouble = 3.2;
+Console.WriteLine($"Оператор: +(double) : {second + someDouble}");
+Console.WriteLine($"Оператор: +(double) : {someDouble + second}");
+Console.WriteLine($"Оператор: -(double) : {second - someDouble}");
+Console.WriteLine($"Оператор: -(double) : {someDouble - second}");
+Console.WriteLine($"Оператор: *(double) : {second * someDouble}");
+Console.WriteLine($"Оператор: *(double) : {someDouble * second}");
+Console.WriteLine($"Оператор: /(double) : {second / someDouble}");
+Console.WriteLine($"Оператор: /(double) : {someDouble / second}");
+
+var third = new RacionalNumbers(3, 9);
+var fourth = new RacionalNumbers(1, 3);
+Console.WriteLine($"== {third == fourth}");
+
+int i = 1;
+Console.WriteLine(third.Equals(i));
+Console.WriteLine(fourth.Equals(third));
+
+var firstComplex = new Complex(2, 1);
+Console.WriteLine(firstComplex);
+var secondComplex = new Complex(2, 5);
+Console.WriteLine(secondComplex);
+var thirdComplex = new Complex(0, 3);
+Console.WriteLine(thirdComplex);
+var fourthComplex = new Complex(4, 0);
+Console.WriteLine(fourthComplex);
+var fifthComplex = new Complex(4, 6);
+Console.WriteLine(fifthComplex);
+var sixthComplex = new Complex(6, 7);
+Console.WriteLine(sixthComplex);
+var sevenComplex = new Complex(6, 7);
+Console.WriteLine(sevenComplex);
+
+Console.WriteLine($"Оператор + : {firstComplex + secondComplex}");
+Console.WriteLine($"Оператор - : {thirdComplex - fourthComplex}");
+Console.WriteLine($"Оператор * : {sixthComplex * fifthComplex}");
+Console.WriteLine($"Оператор / : {fifthComplex / secondComplex}");
+Console.WriteLine($"Оператор == : {sixthComplex == sevenComplex}");
+Console.WriteLine($"Оператор == : {fifthComplex == sevenComplex}");
+Console.WriteLine($"Оператор != : {sixthComplex != sevenComplex}");
+Console.WriteLine($"Оператор != : {fifthComplex != sevenComplex}");
+
+Console.WriteLine(sixthComplex.Equals(sevenComplex));
+Console.WriteLine(fifthComplex.Equals(sevenComplex));
+
+Console.WriteLine("END");
+Console.ReadLine();
