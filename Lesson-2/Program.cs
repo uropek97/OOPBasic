@@ -22,4 +22,13 @@ acc4.TransferMoney(acc5, 50);
 Console.WriteLine($"Баланс 4: {acc4.Balance}");
 Console.WriteLine($"Баланс 5: {acc5.Balance}");
 
+Console.WriteLine($"Оператор == : {acc2 == acc4}");
+Console.WriteLine($"Оператор != : {acc2 != acc4}");
+Console.WriteLine($"Перегруженный Equals() : {acc.Equals(acc3)}");
+var obj = (object)acc3;
+Console.WriteLine($"Переопределённый Equals() : {acc.Equals(obj)}");
+
+Console.WriteLine($"GetHashCode: {acc4.GetHashCode()}");
+
+Console.WriteLine("\nEND");
 Console.ReadLine();
