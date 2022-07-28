@@ -113,6 +113,21 @@ namespace Lesson_2
         {
             return $"Тип счёта: {this.Type}\nНомер счёта: {this.Numb}\nБаланс: {this.Balance}";
         }
+
+        public static bool operator ==(BankAcc first, BankAcc second)
+        {
+            return first.Balance== second.Balance;
+        }
+
+        public static bool operator !=(BankAcc first, BankAcc second)
+        {
+            return !(first.Balance == second.Balance);
+        }
+
+        public bool Equals(BankAcc compared)
+        {
+            return this.Balance == compared.Balance;
+        } 
     }
     public enum AccType
     {
