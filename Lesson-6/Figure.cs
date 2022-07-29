@@ -88,5 +88,10 @@
                 condition = "не видима";
             return $"Фигура: {condition}\nЦвет: {this.Color}\nПозиция: X:{this.HorizontPosition}, Y:{this.VerticalPosition}";
         }
+
+        public virtual double CalcSqure()
+        {
+            return 1;
+        }
     }
 }
