@@ -71,9 +71,9 @@
         public override string ToString()
         {
             if (this.Color is null)
-                return $"Фигура: круг\nПозиция: X: {this.Center.HorizontPosition} Y: {this.Center.VerticalPosition}\nРадиус: {this.Radius}";
+                return $"Фигура: круг\n{this.Center}\nРадиус: {this.Radius}";
             else
-                return $"Фигура: круг\n{this.GetConditionForPrint()}Позиция: X: {this.Center.HorizontPosition} Y: {this.Center.VerticalPosition}\nРадиус: {this.Radius}";
+                return $"Фигура: круг\n{this.GetConditionForPrint()}{this.Center}\nРадиус: {this.Radius}";
         }
     }
 }
