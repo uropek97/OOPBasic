@@ -6,7 +6,7 @@ namespace Lesson_2
     {
         private static int count;
 
-        private string _numb;//использую string потому что банковские счета состоят из 20 цифр и каждая часть счёта что-то означает, например одна из частей - тип счёта
+        private string? _numb;//использую string потому что банковские счета состоят из 20 цифр и каждая часть счёта что-то означает, например одна из частей - тип счёта
         //кажется, будто string тут использовать более уместно. При генерации счёта использовать конкатенацию разных "смысловых" и "порядковых" частей. 
         private int _balance;
         private AccType _type;
@@ -112,6 +112,36 @@ namespace Lesson_2
         public override string ToString()
         {
             return $"Тип счёта: {this.Type}\nНомер счёта: {this.Numb}\nБаланс: {this.Balance}";
+        }
+
+        public static bool operator ==(BankAcc first, BankAcc second)
+        {
+            return first.Balance== second.Balance;
+        }
+
+        public static bool operator !=(BankAcc first, BankAcc second)
+        {
+            return !(first.Balance == second.Balance);
+        }
+
+        public bool Equals(BankAcc compared)
+        {
+            return this.Balance == compared.Balance;
+        }
+
+        public override bool Equals(object? obj)//есть здесь, только потому что в задании было сказано "переопределить", не "перезагрузить". 
+        {
+            if(obj == null)
+                return false;
+            var notObj = obj as BankAcc;
+            if (notObj is null)
+                return false;
+            return this.Balance == notObj.Balance;
+        }
+
+        public override int GetHashCode()
+        {
+            return int.Parse(this.Numb).GetHashCode();
         }
     }
     public enum AccType
