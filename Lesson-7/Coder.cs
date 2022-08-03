@@ -20,6 +20,10 @@ namespace Lesson_7
             this.IsEncrypted = false;
         }
 
+        /// <summary>
+        /// кодирование
+        /// </summary>
+        /// <returns></returns>
         public virtual string Encode()
         {
             var strbuild = new StringBuilder();
@@ -29,19 +33,28 @@ namespace Lesson_7
                 if (_Untouchables.Contains(arr[i])) { }
                 else
                 {
-                    ChangeCharEe(arr[i]);
+                    ChangeCharEe(ref arr[i]);
                     arr[i] = (char)CheckMoving((int)arr[i], Shift);
                 }
                 strbuild.Append(arr[i]);
             }
             return strbuild.ToString();
         }
+
+        /// <summary>
+        /// декодирование
+        /// </summary>
+        /// <returns></returns>
         public virtual string Decode()
         {
             return this.Text;
         }
 
-        protected static void ChangeCharEe(char fromArr)
+        /// <summary>
+        /// проверка на символ Ё или ё. Замена его на Е или е соответсвенно. 
+        /// </summary>
+        /// <param name="fromArr"></param>
+        protected static void ChangeCharEe(ref char fromArr)
         {
             if (_Special[0] == fromArr)
                 fromArr = 'Е';
@@ -49,6 +62,12 @@ namespace Lesson_7
                 fromArr = 'е';
         }
 
+        /// <summary>
+        /// проверка, где значение и вычисление нового
+        /// </summary>
+        /// <param name="value">числовое значение символа</param>
+        /// <param name="shift">сдвиг на это количесетсво </param>
+        /// <returns>новое числовое значение символа</returns>
         private static int CheckMoving(int value, int shift)
         {
             if (value >= _Beginnings[0] && value <= _Ends[0])

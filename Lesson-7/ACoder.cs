@@ -8,14 +8,12 @@ namespace Lesson_7
         private bool _IsEncrypted = false;
         private readonly string? _Primary;
 
-        public override string? Text { get; set; }
-        public override bool IsEncrypted { get; set; }
-
-        public readonly string? Primary;
+        public override string? Text { get { return this._Text; } set { this._Text = value; } }
+        public override bool IsEncrypted { get {return this._IsEncrypted; } set {this._IsEncrypted = value; } }
 
         public ACoder(string text) : base(text)
         {
-            this.Primary = text;
+            this._Primary = text;
         }
 
         public override string Encode()
@@ -27,7 +25,8 @@ namespace Lesson_7
 
         public override string Decode()
         {
-            this.Text = this.Primary;
+            this.Text = this._Primary;
+            this.IsEncrypted = false;
             return base.Decode();
         }
     }

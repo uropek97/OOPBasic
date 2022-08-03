@@ -1,8 +1,13 @@
 ﻿using Lesson_7;
 
-var coder = new ACoder("ВОТ Эта строКА. This is STRING");
-var test1 = coder.Encode();
-var test2 = coder.Decode();
+var acoder = new ACoder("АбCdЕXyZЪыьЭЮяёёё");
+var test1 = acoder.Encode();
+var test2 = acoder.Decode();
+
+var bcoder = new BCoder("АбCdЕXyZЪыьЭЮяёёё");
+var test3 = bcoder.Encode();
+var test4 = bcoder.Decode();
+
 
 Console.WriteLine("END");
 Console.ReadLine();
