@@ -11,7 +11,7 @@
             {
                 return this._Radius;
             }
-            set
+            private set
             {
                 if (value <= 0)
                     throw new ArgumentException("Радиус должен быть больше 0");
@@ -25,7 +25,7 @@
             {
                 return this._Center;
             }
-            set
+            private set
             {
                 this._Center = new Point(value.HorizontPosition, value.VerticalPosition);
             }
@@ -71,9 +71,9 @@
         public override string ToString()
         {
             if (this.Color is null)
-                return $"Фигура: круг\nПозиция: X: {this.Center.HorizontPosition} Y: {this.Center.VerticalPosition}\nРадиус: {this.Radius}";
+                return $"Фигура: круг\n{this.Center}\nРадиус: {this.Radius}";
             else
-                return $"Фигура: круг\n{this.GetConditionForPrint()}Позиция: X: {this.Center.HorizontPosition} Y: {this.Center.VerticalPosition}\nРадиус: {this.Radius}";
+                return $"Фигура: круг\n{this.GetConditionForPrint()}{this.Center}\nРадиус: {this.Radius}";
         }
     }
 }

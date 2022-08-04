@@ -47,6 +47,5 @@ rect2.ChangeVisible();
 rect2.ChangeColor("чёрный");
 Console.WriteLine(rect2);
 
-
 Console.WriteLine("END");
 Console.ReadLine();

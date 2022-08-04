@@ -41,16 +41,16 @@
             {
                 return this._Center;
             }
-            set
+            private set
             {
                 this._Center = new Point(value.HorizontPosition, value.VerticalPosition);
             }
         }
-
         protected Rectangle()
         {
 
         }
+
         public Rectangle(double horizontPosition, double verticalPosition, double lenght, double width)
         {
             this.Center = new Point(horizontPosition, verticalPosition);
@@ -87,9 +87,9 @@
         public override string ToString()
         {
             if (Color is null)
-                return $"{this.GetTypeForPrint().Type}Позиция: X: {this.Center.HorizontPosition} Y: {this.Center.VerticalPosition}\n{this.GetTypeForPrint().Sides}";
+                return $"{this.GetTypeForPrint().Type}{this.Center}\n{this.GetTypeForPrint().Sides}";
             else
-                return $"{this.GetTypeForPrint().Type}{this.GetConditionForPrint()}Позиция: X: {this.Center.HorizontPosition} Y: {this.Center.VerticalPosition}\n{this.GetTypeForPrint().Sides}";
+                return $"{this.GetTypeForPrint().Type}{this.GetConditionForPrint()}{this.Center}\n{this.GetTypeForPrint().Sides}";
         }
 
         /// <summary>
