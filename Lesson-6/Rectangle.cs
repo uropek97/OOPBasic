@@ -41,16 +41,16 @@
             {
                 return this._Center;
             }
-            set
+            private set
             {
                 this._Center = new Point(value.HorizontPosition, value.VerticalPosition);
             }
         }
-
         protected Rectangle()
         {
 
         }
+
         public Rectangle(double horizontPosition, double verticalPosition, double lenght, double width)
         {
             this.Center = new Point(horizontPosition, verticalPosition);

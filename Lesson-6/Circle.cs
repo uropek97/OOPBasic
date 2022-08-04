@@ -11,7 +11,7 @@
             {
                 return this._Radius;
             }
-            set
+            private set
             {
                 if (value <= 0)
                     throw new ArgumentException("Радиус должен быть больше 0");
@@ -25,7 +25,7 @@
             {
                 return this._Center;
             }
-            set
+            private set
             {
                 this._Center = new Point(value.HorizontPosition, value.VerticalPosition);
             }
