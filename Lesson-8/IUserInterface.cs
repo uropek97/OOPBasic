@@ -1,6 +1,6 @@
 ﻿namespace Lesson_8
 {
-    internal interface IUserInterface
+    public interface IUserInterface
     {
         void Write(string message);
         void WriteLine(string message);
