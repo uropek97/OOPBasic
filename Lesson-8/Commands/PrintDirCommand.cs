@@ -4,7 +4,7 @@ namespace Lesson_8.Commands
 {
     internal class PrintDirCommand : FMCommands
     {
-        public override string? Title => "Выводит содержимое директории";
+        public override string? Description => "Выводит содержимое директории";
         private readonly IUserInterface _UserInterface;
         private readonly FileManagerLogic _FileManager;
 
@@ -30,7 +30,7 @@ namespace Lesson_8.Commands
             long total_size = 0;
             foreach (var file in dirs.EnumerateFiles())
             {
-                _UserInterface.WriteLine($"--f--{file.Name}\tР:{file.Length}");
+                _UserInterface.WriteLine($"--f--{file.Name}\t");
                 files_count++;
                 total_size += file.Length;
             }

@@ -2,7 +2,7 @@
 {
     public abstract class FMCommands
     {
-        public abstract string? Title { get; }
+        public abstract string? Description { get; }
 
         public abstract void Execute(string[] args);
     }

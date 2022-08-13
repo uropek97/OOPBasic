@@ -4,7 +4,7 @@ namespace Lesson_8.Commands;
 
 public class ListDrivesCommand : FMCommands
 {
-    public override string? Title => "Выводит список дисков на экран";
+    public override string? Description => "Выводит список дисков на экран";
     private readonly IUserInterface _UserInterface;
 
     public ListDrivesCommand(IUserInterface UserInterface) => _UserInterface = UserInterface;
