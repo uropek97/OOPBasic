@@ -30,6 +30,7 @@ namespace Lesson_8
                 {"quit", quit_comm },
                 {"exit", quit_comm },
                 {"cd", new ChangeDirCommand(UserInterface, this) },
+                {"mkdir", new MakeDirCommand(UserInterface, this) },
             };
         }
 
