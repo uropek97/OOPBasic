@@ -29,6 +29,7 @@ namespace Lesson_8
                 {"?", help_comm },
                 {"quit", quit_comm },
                 {"exit", quit_comm },
+                {"cd", new ChangeDirCommand(UserInterface, this) },
             };
         }
 
