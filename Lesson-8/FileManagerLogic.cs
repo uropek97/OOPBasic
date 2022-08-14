@@ -19,6 +19,7 @@ namespace Lesson_8
             var list_dir_comm = new PrintDirCommand(UserInterface, this);
             var help_comm = new HelpCommand(UserInterface, this);
             var quit_comm = new QuitCommand(this);
+            var delete_dir_comm = new DeleteDirCommand(UserInterface, this);
             Commands = new Dictionary<string, FMCommands>()
             {
                 { "drives", new ListDrivesCommand(UserInterface)},
@@ -32,6 +33,8 @@ namespace Lesson_8
                 {"cd", new ChangeDirCommand(UserInterface, this) },
                 {"mkdir", new MakeDirCommand(UserInterface, this) },
                 {"touch", new MakeFileCommand(UserInterface, this) },
+                {"delete", delete_dir_comm },
+                {"-d", delete_dir_comm },
             };
         }
 
