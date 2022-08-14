@@ -37,6 +37,7 @@ namespace Lesson_8
                 {"-d", delete_dir_comm },
                 {"remove", new RemoveFileCommand(UserInterface, this) },
                 {"renamedir", new RenameDirCommand(UserInterface, this) },
+                {"renamefile", new RenameFileCommand(UserInterface, this) },
             };
         }
 
