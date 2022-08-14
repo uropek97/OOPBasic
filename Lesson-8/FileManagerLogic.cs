@@ -31,12 +31,15 @@ namespace Lesson_8
                 {"exit", quit_comm },
                 {"cd", new ChangeDirCommand(UserInterface, this) },
                 {"mkdir", new MakeDirCommand(UserInterface, this) },
+                {"touch", new MakeFileCommand(UserInterface, this) },
             };
         }
 
         public void Start()
         {
             _UserInterface.WriteLine("Старт");
+
+            Directory.SetCurrentDirectory(CurrentDir.FullName);
 
             do
             {

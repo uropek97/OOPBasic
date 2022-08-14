@@ -49,7 +49,7 @@ namespace Lesson_8.Commands
 
             _UserInterface.WriteLine($"Директория изменена на {dir.FullName}");
 
-            //Directory.SetCurrentDirectory(dir.FullName); - разобраться, почему ошибка возникает
+            Directory.SetCurrentDirectory(dir.FullName);
         }
 
     }
