@@ -7,7 +7,7 @@ namespace Lesson_8.Commands
         private readonly IUserInterface _UserInterface;
         private readonly FileManagerLogic _FileManager;
 
-        public override string? Description => "Перемещение файлов";
+        public override string? Description => "Копирование директорий";
 
         public CopyDirCommand(IUserInterface UserInterface, FileManagerLogic FileManager)
         {

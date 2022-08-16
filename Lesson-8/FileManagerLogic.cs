@@ -42,6 +42,8 @@ namespace Lesson_8
                 {"movefile", new MoveFileCommand(UserInterface, this) },
                 {"copyfile", new CopyFileCommand(UserInterface, this) },
                 {"copydir", new CopyDirCommand(UserInterface, this) },
+                {"search", new SearchCommand(UserInterface, this) },
+                {"attribute", new ChangeAttribCommand(UserInterface, this) },
             };
         }
 
