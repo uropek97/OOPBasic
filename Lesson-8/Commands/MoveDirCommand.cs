@@ -32,7 +32,7 @@ namespace Lesson_8.Commands
             }
 
             var arr = args[1].Split('\\');
-            args[2] += $"\\{arr[arr.Length - 1]}";
+            args[2] += $"\\{arr[arr.Length - 1]}";//в args[2] указан конечный путь, и мы добавляем тоже самое имя директории, которую перемещаем к этому пути.
 
             dir.MoveTo(args[2]);
 
