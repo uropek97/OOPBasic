@@ -41,6 +41,7 @@ namespace Lesson_8
                 {"movedir", new MoveDirCommand(UserInterface, this) },
                 {"movefile", new MoveFileCommand(UserInterface, this) },
                 {"copyfile", new CopyFileCommand(UserInterface, this) },
+                {"copydir", new CopyDirCommand(UserInterface, this) },
             };
         }
 
