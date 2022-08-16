@@ -40,6 +40,7 @@ namespace Lesson_8
                 {"renamefile", new RenameFileCommand(UserInterface, this) },
                 {"movedir", new MoveDirCommand(UserInterface, this) },
                 {"movefile", new MoveFileCommand(UserInterface, this) },
+                {"copyfile", new CopyFileCommand(UserInterface, this) },
             };
         }
 
