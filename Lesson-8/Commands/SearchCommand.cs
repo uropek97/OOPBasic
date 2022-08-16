@@ -15,7 +15,7 @@ namespace Lesson_8.Commands
             _FileManager = FileManager;
         }
 
-        public override void Execute(string[] args)
+        public override void Execute(string[] args) //не получается выполнить команду непосредственно на диске(т.е. C:\ или D:\, например)
         {
             if (args.Length != 2 || string.IsNullOrWhiteSpace(args[1]))
             {

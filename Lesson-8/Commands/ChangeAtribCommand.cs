@@ -24,6 +24,13 @@ namespace Lesson_8.Commands
             }
 
             var file = new FileInfo(Path.Combine(_FileManager.CurrentDir.FullName, args[1]));
+
+            if (!file.Exists)
+            {
+                _UserInterface.WriteLine($"Файла {file} не существует");
+                return;
+            }
+
             _UserInterface.WriteLine($"Текущие арттрибуты: {file.Attributes.ToString()}");
 
             _UserInterface.WriteLine("Установить аттрибут: \n1: Hidden \n2: ReadOnly \n3: Перейти к удалению атрибутов \n0: Отмена"); // добавляю только 2 аттрибута в учебных целях. с остальными аттрибутами такая же логика

@@ -44,6 +44,7 @@ namespace Lesson_8
                 {"copydir", new CopyDirCommand(UserInterface, this) },
                 {"search", new SearchCommand(UserInterface, this) },
                 {"attribute", new ChangeAttribCommand(UserInterface, this) },
+                {"getinfo", new GetInfoCommand(UserInterface, this) },
             };
         }
 
