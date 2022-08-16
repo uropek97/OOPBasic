@@ -34,15 +34,8 @@ namespace Lesson_8.Commands
             var arr = args[1].Split('\\');
             args[2] += $"\\{arr[arr.Length - 1]}";
 
-            try
-            {
-                dir.MoveTo(args[2]);
-            }
-            catch(Exception error)
-            {
-                _UserInterface.WriteLine(error.Message);
-                return;
-            }
+            dir.MoveTo(args[2]);
+
         }
     }
 }

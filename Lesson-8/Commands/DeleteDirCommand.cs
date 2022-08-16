@@ -28,29 +28,22 @@ namespace Lesson_8.Commands
                 _UserInterface.WriteLine($"Директории {dir} не существует");
                 return;
             }
-            try
-            {
-                if (Directory.EnumerateFiles(dir.FullName, "*.*").Any())
-                {
-                    _UserInterface.WriteLine($"Директория {dir} содержит другие директории или файлы. Вы уверены что её нужно удалить?");
-                    string input;
-                    do
-                        input = _UserInterface.ReadLine("Y/N : ", false);
-                    while (input.ToLower() != "y" && input.ToLower() != "n");
-                    if (input == "y")
-                        dir.Delete(true);
-                    else
-                        return;
-                }
-                else
-                    dir.Delete();
 
-            }
-            catch (Exception error)
+            if (Directory.EnumerateFiles(dir.FullName, "*.*").Any())
             {
-                _UserInterface.WriteLine(error.Message);
-                return;
+                _UserInterface.WriteLine($"Директория {dir} содержит другие директории или файлы. Вы уверены что её нужно удалить?");
+                string input;
+                do
+                    input = _UserInterface.ReadLine("Y/N : ", false);
+                while (input.ToLower() != "y" && input.ToLower() != "n");
+                if (input == "y")
+                    dir.Delete(true);
+                else
+                    return;
             }
+            else
+                dir.Delete();
+
         }
     }
 }

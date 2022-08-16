@@ -29,21 +29,15 @@ namespace Lesson_8.Commands
                 _UserInterface.WriteLine($"Файла {file} не существует");
                 return;
             }
-            try
-            {
-                _UserInterface.WriteLine($"Файл{file} невозможно будет восстановить. Вы уверены что его нужно удалить?");
-                string input;
-                do
-                    input = _UserInterface.ReadLine("Y/N : ", false);
-                while (input.ToLower() != "y" && input.ToLower() != "n");
-                if (input == "y")
-                    file.Delete();
-            }
-            catch(Exception error)
-            {
-                _UserInterface.WriteLine(error.Message);
-                return;
-            }
+
+            _UserInterface.WriteLine($"Файл{file} невозможно будет восстановить. Вы уверены что его нужно удалить?");
+            string input;
+            do
+                input = _UserInterface.ReadLine("Y/N : ", false);
+            while (input.ToLower() != "y" && input.ToLower() != "n");
+            if (input == "y")
+                file.Delete();
+
         }
     }
 }

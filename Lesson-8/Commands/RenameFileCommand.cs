@@ -30,15 +30,7 @@ namespace Lesson_8.Commands
                 return;
             }
 
-            try
-            {
-                File.Move(file.Name, args[2]);
-            }
-            catch(Exception error)
-            {
-                _UserInterface.WriteLine(error.Message);
-                return;
-            }
+            File.Move(file.Name, args[2]);
 
         }
     }

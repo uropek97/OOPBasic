@@ -22,15 +22,9 @@ namespace Lesson_8.Commands
                 _UserInterface.WriteLine("Для создания каталога необходимо указать имя каталога");
                 return;
             }
-            try
-            {
-                Directory.CreateDirectory(Path.Combine(_FileManager.CurrentDir.FullName, args[1]));
-            }
-            catch(Exception error)
-            {
-                _UserInterface.WriteLine(error.Message);
-                return;
-            }
+
+            Directory.CreateDirectory(Path.Combine(_FileManager.CurrentDir.FullName, args[1]));
+
         }
     }
 }

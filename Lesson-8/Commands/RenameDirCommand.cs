@@ -24,27 +24,24 @@ namespace Lesson_8.Commands
             }
 
             var dir = new DirectoryInfo(Path.Combine(_FileManager.CurrentDir.FullName, args[1]));
-            
+
             if (!dir.Exists)
             {
                 _UserInterface.WriteLine($"Директории {dir} не существует");
                 return;
             }
 
-            var arr = dir.FullName.Split('\\');
-            var newArr = args[2].Split('\\');//это нужно на случай если в обоих случаях указаные полные пути, в случае если нет, то у нас будет в новых переменных тот же самый элемент
-            arr[arr.Length - 1] = newArr[arr.Length-1];
-            var newPath = string.Join(null, arr);
+            var newdir = new DirectoryInfo(Path.Combine(_FileManager.CurrentDir.FullName, args[2]));
 
-            try
+            if (dir.Parent.Name != newdir.Parent.Name)
             {
-                Directory.Move(dir.FullName, newPath);
-            }
-            catch(Exception error)
-            {
-                _UserInterface.Write(error.Message);
+                _UserInterface.WriteLine($"Команда {args[0]} предназначена для переименования директорий. Для перемещения воспользуйтесь другой командрой.");
+                _UserInterface.WriteLine($"Чтобы узнать все команды введите help");
                 return;
             }
+
+            Directory.Move(dir.FullName, args[2]);
+
         }
     }
 }

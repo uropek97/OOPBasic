@@ -22,15 +22,9 @@ namespace Lesson_8.Commands
                 _UserInterface.WriteLine("Для создания файла необходимо указать имя файла");
                 return;
             }
-            try
-            {
-                using (File.Create(Path.Combine(_FileManager.CurrentDir.FullName, args[1])));
-            }
-            catch (Exception error)
-            {
-                _UserInterface.WriteLine(error.Message);
-                return;
-            }
+
+            using (File.Create(Path.Combine(_FileManager.CurrentDir.FullName, args[1]))) ;
+
         }
     }
 }
