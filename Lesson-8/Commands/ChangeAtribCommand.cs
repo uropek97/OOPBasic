@@ -39,17 +39,19 @@ namespace Lesson_8.Commands
                 input = _UserInterface.ReadLine("0-3: ", false);
             while (input != "0" && input != "1" && input != "2" && input != "3");
 
-            if (input == "0")
-                return;
-            else if (input == "1")
-                file.Attributes |= FileAttributes.Hidden;
-            else if (input == "2")
-                file.Attributes |= FileAttributes.ReadOnly;
-            else
+            switch(input)
             {
-                file.Attributes &= ~FileAttributes.ReadOnly;
-                file.Attributes &= ~FileAttributes.Hidden;
-            }    
+                case "0": return;
+                case "1":
+                    file.Attributes |= FileAttributes.Hidden;
+                    break;
+                case "2":
+                    file.Attributes |= FileAttributes.ReadOnly;
+                    break;
+                default:
+                    file.Attributes &= ~FileAttributes.ReadOnly;
+                    file.Attributes &= ~FileAttributes.Hidden;
+                    break;
 
         }
     }
