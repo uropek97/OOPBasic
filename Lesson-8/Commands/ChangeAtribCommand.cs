@@ -17,7 +17,7 @@ namespace Lesson_8.Commands
 
         public override void Execute(string[] args)
         {
-            if (args.Length != 2 || string.IsNullOrWhiteSpace(args[1]))
+            if (args is not [_, { Length: > 0 }])
             {
                 _UserInterface.WriteLine("Для смены аттрибутов, необходимо указать имя файла");
                 return;
