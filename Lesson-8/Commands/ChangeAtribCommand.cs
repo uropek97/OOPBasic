@@ -37,7 +37,7 @@ namespace Lesson_8.Commands
             string input;
             do
                 input = _UserInterface.ReadLine("0-3: ", false);
-            while (input != "0" && input != "1" && input != "2" && input != "3");
+            while (input is not "0" or "1" or "2" or "3");
 
             switch(input)
             {
